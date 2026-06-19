@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简谈乐鱼体育 · 一份指南与提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f6;
+            font-family: 'system-ui', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+            background: #fffefc;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+            border-radius: 28px;
+            padding: 2.5rem 2.2rem;
+            transition: padding 0.2s ease;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #1f1f1f;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            border-left: 5px solid #d9b382;
+            padding-left: 1.1rem;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #5e5e5e;
+            margin-bottom: 1.8rem;
+            padding-left: 1.6rem;
+            border-left: 2px solid #e4d5c2;
+        }
+
+        .divider-soft {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0d6cb, transparent);
+            margin: 1.8rem 0;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            text-align: justify;
+            font-size: 1rem;
+        }
+
+        .intro-highlight {
+            background: #f5f0ea;
+            padding: 0.8rem 1.3rem;
+            border-radius: 30px;
+            color: #3a3a3a;
+            font-weight: 450;
+            margin: 1.4rem 0 1.8rem 0;
+            display: inline-block;
+        }
+
+        blockquote.callout {
+            background: #f7f3ed;
+            border-left: 7px solid #b69771;
+            padding: 1.1rem 1.6rem;
+            margin: 2rem 0 1.8rem 0;
+            border-radius: 0 18px 18px 0;
+            font-style: normal;
+            color: #3e3b37;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        blockquote.callout p {
+            margin: 0.2rem 0;
+        }
+
+        .reminder-box {
+            background: #f2ede5;
+            padding: 1.4rem 1.6rem;
+            border-radius: 24px;
+            margin: 2rem 0 1.5rem 0;
+            border: 1px solid #e5dbcf;
+        }
+
+        .reminder-box strong {
+            color: #7f613f;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1rem 0;
+            background: #fcfaf7;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+        }
+
+        .faq-mini dt {
+            font-weight: 550;
+            margin-top: 0.8rem;
+            color: #3e2f20;
+        }
+
+        .faq-mini dd {
+            margin-left: 0.5rem;
+            margin-bottom: 0.6rem;
+            color: #4f4f4f;
+            padding-left: 0.8rem;
+            border-left: 2px dotted #d5c7b6;
+        }
+
+        .scene-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.6rem 0 1.2rem 0;
+        }
+
+        .scene-item {
+            flex: 1 1 180px;
+            background: #fefcf9;
+            border: 1px solid #e2d6c8;
+            border-radius: 20px;
+            padding: 1rem 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .scene-item:hover {
+            background: #f7f1e9;
+            border-color: #cbb59b;
+        }
+
+        .scene-item span {
+            font-weight: 500;
+            color: #5d4b38;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .scene-item small {
+            color: #5e5a55;
+            font-size: 0.9rem;
+        }
+
+        .inline-link {
+            color: #876b48;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dacabc;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #5d3f28;
+            border-bottom-color: #876b48;
+        }
+
+        .tag-footer {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7dfd4;
+            font-size: 0.9rem;
+            color: #7b756d;
+            text-align: right;
+        }
+
+        @media (max-width: 520px) {
+            body { padding: 1rem 0.8rem; }
+            .page-wrap { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.6rem; padding-left: 0.8rem; }
+            .subhead { font-size: 0.95rem; padding-left: 1rem; }
+            .scene-item { flex: 1 1 100%; }
+            blockquote.callout { padding: 0.9rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <h1>关于乐鱼体育 · 一篇简明指南</h1>
+        <div class="subhead">从了解、使用到安全提醒，不绕弯子的短笔记</div>
+
+        <p>
+            体育爱好者时常在寻找一个体验顺手、内容聚焦的线上空间。如果你恰好关注篮球、足球或者综合赛事资讯，可能已经听过<strong>乐鱼体育</strong>这个名字。它不是一个宏大的概念，而更像一个实在的去处：汇集赛事信息、社区讨论和基础互动工具。下面这份笔记会从几个侧面聊聊它的特点，顺便附带几条日常使用的提醒。
+        </p>
+
+        <div class="intro-highlight">📌 核心印象：轻量、聚焦、社区氛围</div>
+
+        <p>
+            我个人最初接触<a href="https://appsite-leyu.com.cn" class="inline-link">乐鱼体育</a>是因为朋友推荐，他说“界面干净，没有乱七八糟弹窗”。用了一段时间确实如此：首页以赛事时间线为主，按联赛和热度排列，查找比赛很方便。个人中心里收藏和关注功能也简洁，适合只想看球、不想被过度打扰的人。
+        </p>
+
+        <blockquote class="callout">
+            <p>💬 一次朋友的原话：“就像一家只卖几种饮品的街角店，但每种都做得地道。”—— 我觉得这个比喻用在乐鱼体育上挺准确。</p>
+        </blockquote>
+
+        <p>
+            当然，任何一个平台都有它特定的使用习惯和边界。这里整理了几个常见场景和对应的提醒，希望对你有用。
+        </p>
+
+        <div class="scene-row">
+            <div class="scene-item">
+                <span>🏀 日常刷赛程</span>
+                <small>主力赛事（NBA、欧冠、五大联赛）更新及时，列表可按日期/联赛筛选。</small>
+            </div>
+            <div class="scene-item">
+                <span>⚽ 社区互动</span>
+                <small>赛后讨论区热度不错，但留意信息真实性，别轻信非官方数据。</small>
+            </div>
+            <div class="scene-item">
+                <span>🔔 推送设置</span>
+                <small>推荐只开启关注球队的通知，避免信息过载，尤其在比赛密集日。</small>
+            </div>
+        </div>
+
+        <div class="reminder-box">
+            <strong>⏳ 访问提醒 · 两点忠告</strong>
+            <p>1. 无论在哪浏览，尽量避免使用公共设备自动保存密码。移动端使用后建议手动退出账号，尤其当你用浏览器直接访问时。</p>
+            <p>2. 遇到要求提供额外个人信息的弹窗或私信，请直接忽略并举报。正规使用场景下，<a href="https://appsite-leyu.com.cn" class="inline-link">乐鱼体育</a>不会主动索要支付密码或身份证照片。</p>
+        </div>
+
+        <p>
+            另外，关于帐号安全还有一个很生活化的建议：注册时使用的邮箱或手机号，最好和你主要的支付账号分开。不为了别的，纯属减少潜在风险。这和平台本身是否安全无关，算是网络使用的基本素养。
+        </p>
+
+        <div class="faq-mini">
+            <dl>
+                <dt>❓ FAQ 极简版（实际使用中常被问到的）</dt>
+                <dd><strong>问：</strong> 需要下载客户端吗？<br><strong>答：</strong> 网页端已经比较完善；移动浏览器适配做得不错，可以先在浏览器里试试再决定是否装 App。</dd>
+                <dd><strong>问：</strong> 赛事回放有吗？<br><strong>答：</strong> 部分重点比赛提供集锦和高光片段，完整回放视版权而定，没有固定保证。</dd>
+                <dd><strong>问：</strong> 评论区戾气重吗？<br><strong>答：</strong> 整体还好，偶尔有争吵，但管理介入速度算中等偏快。不想看可以关掉评论区模块。</dd>
+            </dl>
+        </div>
+
+        <p>
+            写完这份简短的指南，想再啰嗦一句：任何线上体育社区都只是工具和聚集地，真正让人投入的是比赛本身和一起看球的朋友。如果你愿意尝试，可以直接去 <a href="https://appsite-leyu.com.cn" class="inline-link">乐鱼体育</a> 逛逛，按自己的节奏熟悉一下界面。不用着急，也不用带着太高的预期，平常心就好。
+        </p>
+
+        <div class="divider-soft"></div>
+
+        <p style="font-size: 0.95rem; color: #625b53;">
+            <em>最后更新于秋末 · 一篇不赶时间的博客笔记</em><br>
+            文中观点仅代表个人使用体验，所有操作请以平台最新规则为准。
+        </p>
+
+        <footer class="tag-footer">
+            #乐鱼体育 #体育指南 #访问提醒
+        </footer>
+    </div>
+</body>
+</html>
