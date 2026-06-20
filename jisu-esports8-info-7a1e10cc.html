@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>极速电竞 · 专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1d2b38;
+            line-height: 1.65;
+            padding: 0 1rem 3rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 杂志式横幅 hero */
+        .hero {
+            margin-top: 2.2rem;
+            background: linear-gradient(145deg, #0f2b38 0%, #173d4a 80%);
+            border-radius: 2.2rem;
+            padding: 4rem 2.5rem 5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 40px -12px rgba(12, 60, 70, 0.25);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -15%;
+            right: -10%;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(72, 200, 180, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #d5f3ed;
+            max-width: 12ch;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 span {
+            color: #7eddd0;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            color: #bbe6dd;
+            font-size: 1.15rem;
+            max-width: 520px;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(2px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            border-left: 4px solid #5bc0b0;
+            line-height: 1.5;
+        }
+
+        /* 网格卡片区 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2.8rem 0;
+        }
+
+        @media (min-width: 680px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.6rem 2.2rem;
+            box-shadow: 0 8px 24px -8px rgba(22, 68, 72, 0.08);
+            transition: all 0.25s ease;
+            border: 1px solid #e9f2f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: #a2d9cf;
+            box-shadow: 0 12px 28px -6px rgba(33, 120, 110, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #ddf3ef;
+            color: #11665a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #10343e;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #2c4a52;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+            flex: 1;
+        }
+
+        .card .meta-note {
+            color: #5a8680;
+            font-size: 0.85rem;
+            border-top: 1px dashed #cde2dd;
+            padding-top: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .card .quote {
+            background: #f1faf7;
+            padding: 0.7rem 1rem;
+            border-radius: 1rem;
+            margin: 0.6rem 0 0.2rem;
+            font-style: italic;
+            font-size: 0.95rem;
+            border-left: 3px solid #58b3a3;
+        }
+
+        /* 第三段介绍卡 —— 宽版 */
+        .intro-wide {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            padding: 2.4rem 2rem;
+            box-shadow: 0 8px 24px -8px rgba(22, 68, 72, 0.06);
+            border: 1px solid #e0efeb;
+            margin: 1.6rem 0 2.4rem;
+        }
+
+        .intro-wide h2 {
+            font-size: 1.7rem;
+            font-weight: 450;
+            color: #0b3942;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intro-wide h2::before {
+            content: '▹';
+            color: #389e8e;
+            font-size: 1.8rem;
+        }
+
+        .intro-wide p {
+            margin-bottom: 1.2rem;
+            color: #1b3f47;
+        }
+
+        .intro-wide .snippet-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .intro-wide .snippet-list li {
+            background: #e7f4f0;
+            list-style: none;
+            padding: 0.5rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #13574b;
+            border: 1px solid #c2ddd4;
+        }
+
+        .faq-brief {
+            background: #e4f2ee;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.8rem 2.2rem;
+            margin: 1.8rem 0 2.5rem;
+        }
+
+        .faq-brief h3 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: #0d4049;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 0.6rem 1rem;
+            flex-wrap: wrap;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #c6dfd8;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            min-width: 7ch;
+            color: #1b665b;
+            font-weight: 550;
+        }
+
+        .faq-item span {
+            color: #234b4d;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            text-align: center;
+            padding: 2.2rem 1.2rem 1.5rem;
+            border-top: 2px solid #d1e7e1;
+            margin-top: 1rem;
+        }
+
+        .footer-note p {
+            color: #305b5a;
+            font-size: 1.08rem;
+            max-width: 600px;
+            margin: 0 auto 0.8rem;
+            line-height: 1.7;
+        }
+
+        .footer-note a {
+            color: #196b5e;
+            background: transparent;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 2px solid #68c2b0;
+            padding-bottom: 0.08rem;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #0b463b;
+            color: #08463b;
+        }
+
+        .footer-note .foot-small {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #5d837e;
+        }
+
+        .badge-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #42ad9a;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #d2e5df;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 杂志横幅 -->
+    <div class="hero">
+        <h1><span>极速</span>电竞 · 聚焦赛场</h1>
+        <p>快速定位电竞内容，从直播到资讯，一页通透。</p>
+    </div>
+
+    <!-- 背景说明 + 第一段自然介绍（卡片1） -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="tag">背景 · 初衷</span>
+            <h2>为谁而设</h2>
+            <p>电竞爱好者每天面对海量赛事信息，往往要辗转多个平台才能找到想看的比赛或数据。<strong>极速电竞</strong> 希望减少这种碎片化：把主流赛程、战队动态和实时比分整合在一个界面里，不必反复切换标签页。</p>
+            <div class="quote">“打开就能看到今天有什么比赛，这点很直接。” —— 来自早期用户的反馈</div>
+            <div class="meta-note">不追求大而全，先做到快而稳。</div>
+        </div>
+
+        <div class="card">
+            <span class="tag">结构 · 逻辑</span>
+            <h2>信息分区</h2>
+            <p>左侧导航保留常用入口，中间信息流按比赛时间倒序排列。每个赛事卡片包含对阵、阶段和观看链接。右侧面板展示热门回放与实时讨论，降低寻找成本。</p>
+            <div class="meta-note"><span class="badge-dot"></span>移动端采用底部导航，手势滑动切换板块</div>
+            <div style="margin-top:0.6rem; background:#f0f9f5; padding:0.4rem 0.8rem; border-radius:20px; font-size:0.85rem; color:#0b5549;">
+                设计原则：减少点击次数，优先呈现今日焦点。
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二段介绍：使用场景/特点（用宽卡片表达） -->
+    <div class="intro-wide">
+        <h2>从快速识别到日常使用</h2>
+        <p>无论你是想看一场正在进行的 Dota 2 淘汰赛，还是回顾昨晚的 LPL 关键局，<strong>极速电竞</strong> 都把“当下最重要”放在首位。页面顶部常驻赛程时间轴，一眼可知现在进行到哪一场。没有复杂的注册流程，打开即浏览。</p>
+        <p>如果你已经知道要搜索具体队伍，搜索栏会同时匹配战队名、选手别名和赛事缩写。同时每个项目（如 VALORANT、CS2、王者荣耀国际版）都有独立的专题页，方便深度关注单一品类。</p>
+        <ul class="snippet-list">
+            <li>跨日赛程对比</li>
+            <li>实时胜率趋势</li>
+            <li>解说阵容预告</li>
+            <li>历史交战记录</li>
+        </ul>
+        <p style="margin-top:0.8rem; font-size:0.93rem; color:#38665f;">以上功能点仍在逐步优化，优先保证数据的准确和更新速度。</p>
+    </div>
+
+    <!-- 第三段自然介绍 (FAQ 摘要 + 部分细节) -->
+    <div class="faq-brief">
+        <h3>常见疑问 · 一瞥</h3>
+        <div class="faq-item">
+            <strong>覆盖哪些游戏？</strong>
+            <span>目前以主流竞技项目为主：英雄联盟、Dota 2、CS2、Valorant、王者荣耀、Apex 等，每月根据赛事热度调整列表。</span>
+        </div>
+        <div class="faq-item">
+            <strong>数据来源？</strong>
+            <span>整合官方API及合作数据接口，部分赛区延迟约 1–2 分钟，保证基础准确。</span>
+        </div>
+        <div class="faq-item">
+            <strong>移动端体验</strong>
+            <span>响应式布局，触控优化，支持横屏查看赛程表。部分复杂表格建议使用平板或桌面。</span>
+        </div>
+        <div style="margin-top:1rem; font-size:0.9rem; color:#30675e; background:#d9efe8; padding:0.6rem 1rem; border-radius:50px; display:inline-block;">
+            ↳ 更多细节可浏览网站内 FAQ 页面
+        </div>
+    </div>
+
+    <!-- 页尾访问提示（链接严格为“极速电竞”） -->
+    <div class="footer-note">
+        <p>如果你正在寻找一个直接、克制的赛事信息站，不妨试试 <a href="https://jisu-esports8.com">极速电竞</a> 。没有弹窗干扰，没有冗余推荐，只有赛程、比分和一点点观赛氛围。</p>
+        <span class="foot-small">无论新老观众，希望这里能帮你更快找到想看的比赛。</span>
+    </div>
+
+    <!-- 非常轻微的占位装饰 -->
+    <hr>
+    <div style="text-align:center; font-size:0.75rem; color:#7a9e98; letter-spacing:0.5px;">
+        <span>· 杂志式版面 · 极速电竞 ·</span>
+    </div>
+</div>
+</body>
+</html>
