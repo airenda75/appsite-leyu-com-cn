@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5e对战平台 — 再次打开，仍然熟悉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 3rem 0 2.5rem;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid #eaeaea;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1d1d1d;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            background: #e8e8e8;
+            padding: 0 0.3rem;
+            border-radius: 8px;
+            font-weight: 450;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #3e3e3e;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3a3a3a;
+            border: 1px solid #d6d6d6;
+        }
+
+        /* card section */
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            padding: 2rem 2.2rem;
+            border: 1px solid #ebebeb;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1e1e1e;
+        }
+
+        .card p {
+            color: #3a3a3a;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            color: #3a3a3a;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #8a8a8a;
+            font-weight: bold;
+        }
+
+        .card-soft {
+            background: #f9f9f9;
+            border: 1px solid #e2e2e2;
+        }
+
+        /* features grid */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 0.5rem 0 0.8rem;
+        }
+
+        .feature-item {
+            background: #f7f7f7;
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #e8e8e8;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #4a4a4a;
+        }
+
+        /* faq summary */
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e4e4e4;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: #1f1f1f;
+        }
+
+        .faq-a {
+            color: #555;
+            font-size: 0.98rem;
+        }
+
+        /* bottom link */
+        .bottom-note {
+            margin-top: 2.5rem;
+            padding: 1.5rem 2rem;
+            background: #fafafa;
+            border-radius: 40px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .bottom-note a {
+            color: #1f1f1f;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #b0b0b0;
+            transition: border-color 0.2s;
+        }
+
+        .bottom-note a:hover {
+            border-bottom-color: #1f1f1f;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #5a5a5a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #8a8a8a;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e2e2e2;
+            margin: 2rem 0 0.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .page {
+                padding: 1.5rem 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .bottom-note {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <div class="tagline">再次回来 · 收藏此刻</div>
+        <h1>你的 <span>5e对战平台</span>，<br>一直在这里</h1>
+        <p>每一次打开，都像回到熟悉的角落。不用重新适应，不必担心遗失——<br>收藏已久的页面、习惯的节奏，仍然安静地等着你。</p>
+    </div>
+
+    <!-- 优势区 卡片 -->
+    <div class="section">
+        <div class="card">
+            <h2>为什么值得收藏</h2>
+            <p>我们始终相信，一个好的平台不需要反复推销自己。它只需要稳定、清晰、不打扰。</p>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>稳定访问</h3>
+                    <p>无论你从哪个设备回来，界面与功能保持一致，减少不必要的重新学习。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>持续迭代</h3>
+                    <p>不张扬的更新，悄悄优化细节，让你下次使用时感觉更顺手。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>轻量体验</h3>
+                    <p>没有弹窗轰炸，没有冗余装饰，把注意力还给真正重要的事。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>社区氛围</h3>
+                    <p>许多老用户选择留下来，是因为这里的人与交流方式让人舒服。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区 从再次访问角度 -->
+        <div class="card card-soft">
+            <h2>再次访问时，你会感到熟悉</h2>
+            <p>如果你已经有一段时间没有打开 <a href="https://zh-5e.com" style="color:#2c2c2c; text-decoration: underline; text-underline-offset:3px; text-decoration-color:#b8b8b8;">5e对战平台</a>，不必犹豫。登录后的首页、个人中心、常用功能都保留了原来的结构，没有突然的布局变动。</p>
+            <p>我们倾向于做「静默的维护者」：修复已知问题、优化加载速度、调整文案细节，但不会在每次更新后要求你重新适应。</p>
+            <p>收藏夹里的链接仍然有效，书签依旧指向同一个熟悉的地方。</p>
+        </div>
+
+        <!-- 场景 / 提示 -->
+        <div class="card">
+            <h2>这些时刻，或许你会想起这里</h2>
+            <ul>
+                <li>想找一个没有广告干扰、节奏自在的角落</li>
+                <li>偶尔回来看看有没有新的内容或变化</li>
+                <li>推荐给朋友时，不必担心他们迷路</li>
+                <li>在收藏夹里保留一个安静但靠谱的选项</li>
+            </ul>
+            <p style="margin-top: 1rem;">我们不需要你每天都来，但希望你每次来都感到自然。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="card">
+            <h2>一些你可能想知道的</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">我之前的收藏和设置还在吗？</div>
+                    <div class="faq-a">只要使用同一个账号，大部分个人设置和收藏内容都会保留。如果遇到异常，可以联系支持团队。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">页面会突然改版吗？</div>
+                    <div class="faq-a">我们倾向于渐进式调整，避免大面积改版。如果发生变化，会提前以温和的方式通知。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">如何最快回到平台？</div>
+                    <div class="faq-a">把 <a href="https://zh-5e.com" style="color:#2c2c2c; text-decoration: underline; text-underline-offset:3px; text-decoration-color:#b8b8b8;">5e对战平台</a> 添加到浏览器书签或收藏夹，下次一键直达。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">平台适合长期使用吗？</div>
+                    <div class="faq-a">很多用户已经使用了相当长的时间。我们注重可持续性和稳定性，不追求短期数据。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 / 持续关注 -->
+    <div class="bottom-note">
+        <p style="margin-bottom: 0.6rem;">如果你愿意，可以把这里放进收藏夹。<br>不需要记住复杂的地址，也不用担心下次找不到。</p>
+        <p style="font-size: 1.05rem;"><a href="https://zh-5e.com">5e对战平台</a>  ——  随时回来，它都在这儿。</p>
+    </div>
+
+    <hr>
+
+    <div class="footer-links">
+        <a href="https://zh-5e.com">5e对战平台</a>
+        <a href="#">关于</a>
+        <a href="#">使用指南</a>
+        <a href="#">联系</a>
+    </div>
+
+    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: #8a8a8a;">
+        · 温和地存在 ·
+    </p>
+
+</div>
+</body>
+</html>
